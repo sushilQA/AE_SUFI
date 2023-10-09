@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]" parallel="none">
+  <parameter name="a" value="5"/>
+  <parameter name="b" value="3"/>
+  <test name="Test(failed)" parallel="none">
+    <classes>
+      <class name="SeleniumProject.SeleniumProject.MainClass">
+        <methods>
+          <include name="browserSetup"/>
+          <include name="test1"/>
+        </methods>
+      </class> <!-- SeleniumProject.SeleniumProject.MainClass -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->
