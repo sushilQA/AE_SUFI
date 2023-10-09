@@ -2,6 +2,7 @@ package org.testing.Base;
 
 import java.io.IOException;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -23,10 +24,11 @@ public class BaseClass {
 		ChromeOptions options = new ChromeOptions();
 		options.setBinary("C:\\Users\\sushil.k\\eclipse-workspace\\chrome-win64\\chrome-win64\\chrome.exe");
 		this.driver = new ChromeDriver(options);
-		this.properties = LoadPropertiesFile.handlePropertyFile("../AE_Toyota/ObjectRepositery.properties");
-		driver.navigate().to("https://toyotadev.hsc.alertenterprisecloud.com/?IsAlertUser=true");
 		driver.manage().window().maximize();
-		Thread.sleep(3000);
+		driver.navigate().to("https://toyotadev.hsc.alertenterprisecloud.com/?IsAlertUser=true");
+		Thread.sleep(6000);
+		this.properties = LoadPropertiesFile.handlePropertyFile("../AE_Toyota/ObjectRepositery.properties");
+		Thread.sleep(6000);
 
 	}
 

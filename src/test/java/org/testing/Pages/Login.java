@@ -8,6 +8,8 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testing.utilities.RandomNumberGenerator;
 import org.testing.utilities.ScreenShotCaptured;
 
@@ -24,30 +26,16 @@ public class Login {
 	public void backendUerLogIn(String userName , String password) throws IOException
 	{
 		try {
-			driver.findElement(By.xpath(properties.getProperty("Email"))).sendKeys(userName);
+			driver.findElement(By.xpath(properties.getProperty("UserName"))).sendKeys(userName);
 			Thread.sleep(1000);
 			driver.findElement(By.xpath(properties.getProperty("Password"))).sendKeys(password);
 			Thread.sleep(1000);
-			driver.findElement(By.xpath(properties.getProperty("SignIn"))).click();
-			Thread.sleep(3000);
-			driver.findElement(By.xpath(properties.getProperty("CloseTour"))).click();
-			if(driver.findElement(By.xpath(properties.getProperty("SessionDestroyed"))).isDisplayed())
-			{
-				driver.findElement(By.xpath(properties.getProperty("SessionDestroyed"))).click();
-				driver.findElement(By.xpath(properties.getProperty("Email"))).sendKeys(userName);
-				Thread.sleep(1000);
-				driver.findElement(By.xpath(properties.getProperty("Password"))).sendKeys(password);
-				Thread.sleep(1000);
-				driver.findElement(By.xpath(properties.getProperty("SignIn"))).click();
-				Thread.sleep(3000);
-			}
-			
-			System.out.println("You have been Sign in Successfully! ");
-			Thread.sleep(1000);
+			driver.findElement(By.xpath(properties.getProperty("LogIn"))).click();
+			Thread.sleep(10000);
 
 			}catch(Exception exception)
 			{
-				ScreenShotCaptured.takeScreenShot("../Nopaperforms.com/src/test/java/org/testing/ScreenShots/"+RandomNumberGenerator.randomNumber()+".png", driver);
+				ScreenShotCaptured.takeScreenShot("../AE_Toyota/src/test/java/org/testing/ScreenShots/"+RandomNumberGenerator.randomNumber()+".png", driver);
 				System.out.println("There is an Exception in Code :"+exception);
 			}
 	}
