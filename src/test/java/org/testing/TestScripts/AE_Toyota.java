@@ -10,12 +10,13 @@ import org.testng.annotations.Test;
 
 import jxl.read.biff.BiffException;
 
-public class Nopaperforms extends BaseClass {
+public class AE_Toyota extends BaseClass {
 
 	@Test(enabled = true, priority = 1)
 	public void tc1Method() throws InterruptedException, IOException, BiffException {
 		Login login = new Login(properties, driver);
 		Logout logout = new Logout(properties, driver);
+		login.backendUerLogIn(ExcelDataRead.readACell(1, 0), ExcelDataRead.readACell(1, 1));
 	}
 
 	@AfterClass
