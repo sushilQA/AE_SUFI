@@ -1,4 +1,4 @@
-package org.testing.utilities;
+package org.Toyota.Utilities;
 
 import java.util.Random;
 public class RandomNumberGenerator {

@@ -1,8 +1,10 @@
-package org.testing.Pages;
+package org.Toyota.Pages;
 
 import java.io.IOException;
 import java.util.Properties;
 
+import org.Toyota.Utilities.RandomNumberGenerator;
+import org.Toyota.Utilities.ScreenShotCaptured;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -10,8 +12,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testing.utilities.RandomNumberGenerator;
-import org.testing.utilities.ScreenShotCaptured;
 
 public class Login {
 	
@@ -23,7 +23,7 @@ public class Login {
 		this.driver = driver;
 	}
 	
-	public void backendUerLogIn(String userName , String password) throws IOException
+	public void userLogIn(String userName , String password) throws IOException
 	{
 		try {
 			driver.findElement(By.xpath(properties.getProperty("UserName"))).sendKeys(userName);
@@ -35,7 +35,7 @@ public class Login {
 
 			}catch(Exception exception)
 			{
-				ScreenShotCaptured.takeScreenShot("../AE_Toyota/src/test/java/org/testing/ScreenShots/"+RandomNumberGenerator.randomNumber()+".png", driver);
+				ScreenShotCaptured.takeScreenShot("../AE_Toyota/src/test/java/org/Toyota/ScreenShots/"+RandomNumberGenerator.randomNumber()+".png", driver);
 				System.out.println("There is an Exception in Code :"+exception);
 			}
 	}

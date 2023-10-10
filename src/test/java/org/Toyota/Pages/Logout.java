@@ -1,15 +1,15 @@
-package org.testing.Pages;
+package org.Toyota.Pages;
 
 import java.io.IOException;
 import java.util.Properties;
 
+import org.Toyota.Utilities.RandomNumberGenerator;
+import org.Toyota.Utilities.ScreenShotCaptured;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.testing.utilities.RandomNumberGenerator;
-import org.testing.utilities.ScreenShotCaptured;
 
 public class Logout {
 	

@@ -3,14 +3,14 @@
 <suite parallel="none" name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test parallel="none" name="Default test(failed)">
     <classes>
-      <class name="org.testing.TestScripts.AE_Toyota">
+      <class name="org.Toyota.TestCaseScripts.CardHolder">
         <methods>
-          <include name="afterClass"/>
+          <include name="badgeAdminLogin"/>
           <include name="afterMethod"/>
-          <include name="tc1Method"/>
           <include name="beforeMethod"/>
+          <include name="afterClass"/>
         </methods>
-      </class> <!-- org.testing.TestScripts.AE_Toyota -->
+      </class> <!-- org.Toyota.TestCaseScripts.CardHolder -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

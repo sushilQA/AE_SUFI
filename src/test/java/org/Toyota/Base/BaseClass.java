@@ -1,13 +1,13 @@
-package org.testing.Base;
+package org.Toyota.Base;
 
 import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import org.Toyota.Utilities.LoadPropertiesFile;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.testing.utilities.LoadPropertiesFile;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
