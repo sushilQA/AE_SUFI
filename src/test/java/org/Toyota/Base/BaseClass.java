@@ -25,7 +25,7 @@ public class BaseClass {
 		options.setBinary("C:\\Users\\sushil.k\\eclipse-workspace\\chrome-win64\\chrome-win64\\chrome.exe");
 		this.driver = new ChromeDriver(options);
 		driver.manage().window().maximize();
-		driver.navigate().to("https://toyotadev.hsc.alertenterprisecloud.com/?IsAlertUser=true");
+		driver.navigate().to("https://toyota-uat.alerthsc.com/?IsAlertUser=true");
 		Thread.sleep(6000);
 		this.properties = LoadPropertiesFile.handlePropertyFile("../AE_Toyota/ObjectRepositery.properties");
 		Thread.sleep(6000);

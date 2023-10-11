@@ -26,13 +26,13 @@ public class Login {
 	public void userLogIn(String userName , String password) throws IOException
 	{
 		try {
+			WebElement wait = new WebDriverWait(driver, 1000).until(ExpectedConditions.
+					presenceOfElementLocated(By.xpath(properties.getProperty("UserName"))));
 			driver.findElement(By.xpath(properties.getProperty("UserName"))).sendKeys(userName);
 			Thread.sleep(1000);
 			driver.findElement(By.xpath(properties.getProperty("Password"))).sendKeys(password);
 			Thread.sleep(1000);
 			driver.findElement(By.xpath(properties.getProperty("LogIn"))).click();
-			Thread.sleep(10000);
-
 			}catch(Exception exception)
 			{
 				ScreenShotCaptured.takeScreenShot("../AE_Toyota/src/test/java/org/Toyota/ScreenShots/"+RandomNumberGenerator.randomNumber()+".png", driver);

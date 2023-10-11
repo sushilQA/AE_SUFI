@@ -12,6 +12,8 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class MyRequest {
 
@@ -25,11 +27,19 @@ public class MyRequest {
 
 	public void myRequest(WebDriver driver, Properties properties) throws InterruptedException, IOException {
 		try {
-			Thread.sleep(3000);
+			WebElement wait = new WebDriverWait(driver, 1000)
+					.until(ExpectedConditions.elementToBeClickable(By.xpath(properties.getProperty("Menue"))));
 			driver.findElement(By.xpath(properties.getProperty("Menue"))).click();
 			Thread.sleep(1000);
 			driver.findElement(By.xpath(properties.getProperty("MenuSearch"))).sendKeys("request");
-			driver.findElement(By.xpath(properties.getProperty("MyRequest"))).click();;			
+			Thread.sleep(1000);
+			driver.findElement(By.xpath(properties.getProperty("MyRequest"))).click();
+			Thread.sleep(1000);
+			driver.findElement(By.xpath(properties.getProperty("Menue"))).click();
+			if (driver.getTitle().toString().contains(properties.getProperty("PageTitle"))) {
+				System.out.println("You are land up on My Requests Page");
+			} else
+				System.out.println("You are land up on a Different Page");
 		} catch (Exception exception) {
 			ScreenShotCaptured.takeScreenShot("../AE_Toyota/src/test/java/org/Toyota/ScreenShots/"
 					+ RandomNumberGenerator.randomNumber() + ".png", driver);
