@@ -27,6 +27,7 @@ public class CardHolderOnboarding {
 
 	public void cardHolderOnBoarding(WebDriver driver, Properties properties) throws InterruptedException, IOException {
 		try {
+			Actions action = new Actions(driver);
 			WebElement wait = new WebDriverWait(driver, 1000)
 					.until(ExpectedConditions.elementToBeClickable(By.xpath(properties.getProperty("Menue"))));
 			driver.findElement(By.xpath(properties.getProperty("Create"))).click();
@@ -41,13 +42,20 @@ public class CardHolderOnboarding {
 			Thread.sleep(3000);
 			driver.findElement(By.xpath(properties.getProperty("LastName"))).sendKeys("LastName" + RandomNumberGenerator.randomNumber().toString());
 			Thread.sleep(3000);
-			driver.findElement(By.xpath(properties.getProperty("WorkLocation"))).sendKeys("ADAS");
-			driver.findElement(By.xpath(properties.getProperty("WorkLocation"))).sendKeys(Keys.ENTER);
+		    WebElement workLocation = 	driver.findElement(By.xpath(properties.getProperty("WorkLocation")));
+		    action.click(workLocation).sendKeys("ADAS");
+		    Thread.sleep(3000);
+			WebElement source = driver.findElement(
+					By.xpath("//*[@class='font14 appendBottom5 blackText' and text()='Abu Dhabi, United Arab Emirates']"));
+			action.sendKeys(source, Keys.ENTER).perform();
+			//driver.findElement(By.xpath(properties.getProperty("WorkLocation"))).sendKeys("ADAS");
+			//driver.findElement(By.xpath(properties.getProperty("WorkLocation"))).sendKeys(Keys.ENTER);
 			if (driver.getTitle().toString().contains(properties.getProperty("PageTitle"))) {
 				System.out.println("You are land up on My Requests Page");
 			} else
 				System.out.println("You are land up on a Different Page");
 		} catch (Exception exception) {
+			System.out.println("There is an Exception in Code :" + exception);
 			ScreenShotCaptured.takeScreenShot("../AE_Toyota/src/test/java/org/Toyota/ScreenShots/"
 					+ RandomNumberGenerator.randomNumber() + ".png", driver);
 			System.out.println("There is an Exception in Code :" + exception);

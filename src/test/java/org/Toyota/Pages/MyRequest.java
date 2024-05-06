@@ -34,9 +34,10 @@ public class MyRequest {
 			driver.findElement(By.xpath(properties.getProperty("MenuSearch"))).sendKeys("request");
 			Thread.sleep(1000);
 			driver.findElement(By.xpath(properties.getProperty("MyRequest"))).click();
-			Thread.sleep(1000);
+			Thread.sleep(100);
 			driver.findElement(By.xpath(properties.getProperty("Menue"))).click();
-			if (driver.getTitle().toString().contains(properties.getProperty("PageTitle"))) {
+			String PageTitle = driver.getTitle().toString();
+			if (PageTitle.contains(properties.getProperty("PageTitle"))) {
 				System.out.println("You are land up on My Requests Page");
 			} else
 				System.out.println("You are land up on a Different Page");
